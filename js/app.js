@@ -21,7 +21,12 @@ const keypad = document.getElementById('keypad').addEventListener('click', funct
         }
         if (key.innerText == '<') {
             const stripped = keyInput.value / 10 | 0;
-            keyInput.value = stripped;
+            
+            if (stripped == 0) {
+                keyInput.value = '';
+            } else {
+                keyInput.value = stripped;
+            }
 
         }
     }else {
@@ -41,6 +46,7 @@ submitBtn.addEventListener('click', function () {
     if (pin == typedNumbers) {
         successMessage.style.display = 'block';
         errorMessage.style.display = 'none';
+        window.location.href = 'account.html';
     }else{
     errorMessage.style.display = 'block';
     successMessage.style.display = 'none';
